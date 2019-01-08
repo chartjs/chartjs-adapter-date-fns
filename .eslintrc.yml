@@ -1,0 +1,12 @@
+extends: chartjs
+
+parserOptions:
+  ecmaVersion: 5
+  sourceType: module
+
+env:
+  browser: true
+  node: true
+
+rules:
+  object-curly-spacing: [2, "always"]
