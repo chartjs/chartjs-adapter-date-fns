@@ -13,32 +13,23 @@ import {
 } from 'date-fns';
 
 var FORMATS = {
+	datetime: 'MMM D, YYYY, h:mm:ss a',
 	millisecond: 'h:mm:ss.SSS a',
 	second: 'h:mm:ss a',
 	minute: 'h:mm a',
 	hour: 'ha',
 	day: 'MMM d',
 	week: 'DD',
-	month: 'MMM yyyy',
-	quarter: "'Q'q - yyyy",
-	year: 'yyyy'
+	month: 'MMM YYYY',
+	quarter: '[Q]Q - YYYY',
+	year: 'YYYY'
 };
 
-var PRESETS = {
-	full: 'MMM d, yyyy h:mm:ss.SSS a',
-	time: 'MMM d, yyyy h:mm:ss a',
-	date: 'MMM d, yyyy'
-};
-
-helpers.merge(_adapters._date, {
+_adapters._date.override({
 	_id: 'date-fns', // DEBUG
 
 	formats: function() {
 		return FORMATS;
-	},
-
-	presets: function() {
-		return PRESETS;
 	},
 
 	parse: function(value/* , format */) {
