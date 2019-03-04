@@ -10,7 +10,7 @@ const banner = `/*!
 
 module.exports = [
 	{
-		input: 'src/adapter.js',
+		input: 'src/index.js',
 		output: {
 			file: `dist/${pkg.name}.js`,
 			banner: banner,
@@ -27,7 +27,7 @@ module.exports = [
 		]
 	},
 	{
-		input: 'src/adapter.js',
+		input: 'src/index.js',
 		output: {
 			file: `dist/${pkg.name}.min.js`,
 			format: 'umd',
