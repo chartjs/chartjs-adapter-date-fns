@@ -1,23 +1,23 @@
 #!/bin/bash
 
- set -e
+set -e
 
- if [ "$TRAVIS_BRANCH" != "release" ]; then
+if [ "$TRAVIS_BRANCH" != "release" ]; then
     echo "Skipping release because this is not the 'release' branch"
     exit 0
 fi
 
- # Travis executes this script from the repository root, so at the same level than package.json
+# Travis executes this script from the repository root, so at the same level than package.json
 VERSION=$(node -p -e "require('./package.json').version")
 
- # Make sure that the associated tag doesn't already exist
+# Make sure that the associated tag doesn't already exist
 GITTAG=$(git ls-remote origin refs/tags/v$VERSION)
 if [ "$GITTAG" != "" ]; then
     echo "Tag for package.json version already exists, aborting release"
     exit 1
 fi
 
- git remote add auth-origin https://$GITHUB_AUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
+git remote add auth-origin https://$GITHUB_AUTH_TOKEN@github.com/$TRAVIS_REPO_SLUG.git
 git config --global user.email "$GITHUB_AUTH_EMAIL"
 git config --global user.name "Chart.js"
 git checkout --detach --quiet
