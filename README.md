@@ -4,33 +4,28 @@
 
 ## Overview
 
-This adapter allows to use date-fns with the Chart.js.
+This adapter allows the use of date-fns with Chart.js.
 
 Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [date-fns](https://date-fns.org/) **1.30.1** or later.
 
-## Getting started
+**Note:** once loaded, this adapter overrides the default date-adapter provided in Chart.js (as a side-effect).
+
+## Installation
 
 ### npm
 
+```bash
+npm install date-fns chartjs-adapter-date-fns --save
 ```
-npm install chartjs-adapter-date-fns --save
+
+```javascript
+import Chart from 'chart.js';
+import 'chartjs-adapter-date-fns';
 ```
 
 ### CDN
 
 By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
-
-```
-https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@0.1.0
-```
-
-Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
-
-## Integration
-
-**Note:** once loaded, this adapter overrides the default date-adapter provided in Chart.js (as a side-effect).
-
-### HTML
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
@@ -38,12 +33,7 @@ Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@0.1.0"></script>
 ```
 
-### Module
-
-```javascript
-import Chart from 'chart.js';
-import 'chartjs-adapter-date-fns';
-```
+Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
 
 ## Configuration
 
@@ -53,13 +43,13 @@ No adapter configuration is currently available, read the [Chart.js documention]
 
 You first need to install node dependencies (requires [Node.js](https://nodejs.org/)):
 
-```
+```bash
 > npm install
 ```
 
 The following commands will then be available from the repository root:
 
-```
+```bash
 > gulp build            // build dist files
 > gulp build --watch    // build and watch for changes
 > gulp lint             // perform code linting
