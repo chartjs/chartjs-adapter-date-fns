@@ -2,7 +2,7 @@
   "name": "chartjs-adapter-date-fns",
   "homepage": "https://www.chartjs.org",
   "description": "Chart.js adapter to use date-fns for time functionalities",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/chartjs-adapter-date-fns.js",
   "repository": {
@@ -17,8 +17,7 @@
   ],
   "files": [
     "bower.json",
-    "dist/*.js",
-    "src"
+    "dist/*.js"
   ],
   "devDependencies": {
     "eslint-config-chartjs": "^0.1.0",
