@@ -3,9 +3,9 @@ import {
 	parse, format,
 	startOfSecond, startOfMinute, startOfHour, startOfDay,
 	startOfWeek, startOfMonth, startOfQuarter, startOfYear,
-	addMillisencods, addSeconds, addMinutes, addHours,
+	addMilliseconds, addSeconds, addMinutes, addHours,
 	addDays, addWeeks, addMonths, addQuarters, addYears,
-	differenceInMillisencods, differenceInSeconds, differenceInMinutes,
+	differenceInMilliseconds, differenceInSeconds, differenceInMinutes,
 	differenceInHours, differenceInDays, differenceInWeeks,
 	differenceInMonths, differenceInQuarters, differenceInYears,
 	endOfSecond, endOfMinute, endOfHour, endOfDay,
@@ -46,7 +46,7 @@ _adapters._date.override({
 
 	add: function(time, amount, unit) {
 		switch (unit) {
-		case 'millisecond': return addMillisencods(time, amount);
+		case 'millisecond': return addMilliseconds(time, amount);
 		case 'second': return addSeconds(time, amount);
 		case 'minute': return addMinutes(time, amount);
 		case 'hour': return addHours(time, amount);
@@ -61,7 +61,7 @@ _adapters._date.override({
 
 	diff: function(max, min, unit) {
 		switch (unit) {
-		case 'millisecond': return differenceInMillisencods(max, min);
+		case 'millisecond': return differenceInMilliseconds(max, min);
 		case 'second': return differenceInSeconds(max, min);
 		case 'minute': return differenceInMinutes(max, min);
 		case 'hour': return differenceInHours(max, min);
