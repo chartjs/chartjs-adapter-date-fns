@@ -1,6 +1,6 @@
 import { _adapters, helpers } from 'chart.js';
 import {
-	parse, format,
+	parse, parseISO, toDate, isValid, format,
 	startOfSecond, startOfMinute, startOfHour, startOfDay,
 	startOfWeek, startOfMonth, startOfQuarter, startOfYear,
 	addMilliseconds, addSeconds, addMinutes, addHours,
@@ -10,19 +10,19 @@ import {
 	differenceInMonths, differenceInQuarters, differenceInYears,
 	endOfSecond, endOfMinute, endOfHour, endOfDay,
 	endOfWeek, endOfMonth, endOfQuarter, endOfYear
-} from 'date-fns';
+} from 'date-fns/esm';
 
-var FORMATS = {
-	datetime: 'MMM D, YYYY, h:mm:ss a',
-	millisecond: 'h:mm:ss.SSS a',
-	second: 'h:mm:ss a',
-	minute: 'h:mm a',
+const FORMATS = {
+	datetime: 'MMM d, yyyy, h:mm:ss aaaa',
+	millisecond: 'h:mm:ss.SSS aaaa',
+	second: 'h:mm:ss aaaa',
+	minute: 'h:mm aaaa',
 	hour: 'ha',
 	day: 'MMM d',
-	week: 'DD',
-	month: 'MMM YYYY',
-	quarter: '[Q]Q - YYYY',
-	year: 'YYYY'
+	week: 'PP',
+	month: 'MMM yyyy',
+	quarter: 'qqq - yyyy',
+	year: 'yyyy'
 };
 
 _adapters._date.override({
@@ -32,16 +32,26 @@ _adapters._date.override({
 		return FORMATS;
 	},
 
-	parse: function(value/* , format */) {
+	parse: function(value, fmt) {
 		if (helpers.isNullOrUndef(value)) {
 			return null;
 		}
-
-		return parse(value);
+		const options = this.options ? this.options : {};
+		if (typeof value === 'number' || value instanceof Date) {
+			value = toDate(value);
+		} else if (typeof value === 'string') {
+			if (typeof fmt === 'string') {
+				value = parse(value, fmt, new Date(), options);
+			} else {
+				value = parseISO(value, options);
+			}
+		}
+		return isValid(value) ? value.valueOf() : null;
 	},
 
 	format: function(time, fmt) {
-		return format(time, fmt);
+		const options = this.options ? this.options : {};
+		return format(time, fmt, options);
 	},
 
 	add: function(time, amount, unit) {

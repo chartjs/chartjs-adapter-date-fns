@@ -6,7 +6,7 @@
 
 This adapter allows the use of date-fns with Chart.js.
 
-Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [date-fns](https://date-fns.org/) **1.30.1** or later.
+Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [date-fns](https://date-fns.org/) **2.0.0-alpha.27** or later.
 
 **Note:** once loaded, this adapter overrides the default date-adapter provided in Chart.js (as a side-effect).
 
@@ -37,7 +37,14 @@ Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/
 
 ## Configuration
 
-No adapter configuration is currently available, read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/v1.30.1/docs/format).
+Locale support:
+date-fns, contrary to moment.js which uses a global locale configuration, requires the date-fns locale object to be tagged on to each `format()` call, which requires the locale to be explicitly set via the `adapters.date` option: [Chart.js documentation on adapters.date](https://www.chartjs.org/docs/latest/axes/cartesian/time.html?h=adapter)
+eg.
+```javascript
+{ locale: de }
+```
+
+Further, read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/v2.0.0-alpha.27/docs/format).
 
 ## Development
 
