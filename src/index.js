@@ -41,8 +41,7 @@ _adapters._date.override({
 	},
 
 	format: function(time, fmt) {
-		const options = this.options ? this.options : {};
-		return format(time, fmt, options);
+		return format(time, fmt, this.options || {});
 	},
 
 	add: function(time, amount, unit) {
