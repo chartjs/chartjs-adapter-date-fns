@@ -15,7 +15,7 @@ Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or l
 ### npm
 
 ```bash
-npm install date-fns chartjs-adapter-date-fns --save
+npm install date-fns@next chartjs-adapter-date-fns@next --save
 ```
 
 ```javascript
@@ -25,12 +25,12 @@ import 'chartjs-adapter-date-fns';
 
 ### CDN
 
-By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
+By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/date-fns@1.30.1/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@0.1.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/date-fns@next/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next"></script>
 ```
 
 Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).

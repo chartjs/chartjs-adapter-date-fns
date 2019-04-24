@@ -12,7 +12,7 @@ import {
 	endOfWeek, endOfMonth, endOfQuarter, endOfYear
 } from 'date-fns/esm';
 
-const FORMATS = {
+var FORMATS = {
 	datetime: 'MMM d, yyyy, h:mm:ss aaaa',
 	millisecond: 'h:mm:ss.SSS aaaa',
 	second: 'h:mm:ss aaaa',
@@ -36,10 +36,11 @@ _adapters._date.override({
 		if (helpers.isNullOrUndef(value)) {
 			return null;
 		}
-		const options = this.options ? this.options : {};
-		if (typeof value === 'number' || value instanceof Date) {
+		var options = this.options ? this.options : {};
+		var type = typeof value;
+		if (type === 'number' || value instanceof Date) {
 			value = toDate(value);
-		} else if (typeof value === 'string') {
+		} else if (type === 'string') {
 			if (typeof fmt === 'string') {
 				value = parse(value, fmt, new Date(), options);
 			} else {
@@ -50,8 +51,7 @@ _adapters._date.override({
 	},
 
 	format: function(time, fmt) {
-		const options = this.options ? this.options : {};
-		return format(time, fmt, options);
+		return format(time, fmt, this.options || {});
 	},
 
 	add: function(time, amount, unit) {
