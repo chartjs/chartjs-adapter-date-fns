@@ -1,6 +1,6 @@
 import { _adapters, helpers } from 'chart.js';
 import {
-	parse, format,
+	parse, format, isValid,
 	startOfSecond, startOfMinute, startOfHour, startOfDay,
 	startOfWeek, startOfMonth, startOfQuarter, startOfYear,
 	addMilliseconds, addSeconds, addMinutes, addHours,
@@ -32,16 +32,16 @@ _adapters._date.override({
 		return FORMATS;
 	},
 
-	parse: function(value/* , format */) {
+	parse: function(value) {
 		if (helpers.isNullOrUndef(value)) {
 			return null;
 		}
-
-		return parse(value);
+		value = parse(value, this.options);
+		return isValid(value) ? value.getTime() : null;
 	},
 
 	format: function(time, fmt) {
-		return format(time, fmt);
+		return format(time, fmt, this.options);
 	},
 
 	add: function(time, amount, unit) {
