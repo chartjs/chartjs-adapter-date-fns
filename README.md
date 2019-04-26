@@ -44,7 +44,7 @@ date-fns requires a date-fns locale object to be tagged on to each `format()` ca
 For example:
 ```javascript
 // import date-fns locale:
-import {de} from 'date-fns/locale';
+import de from 'date-fns/locale/de';
 
 // scale options:
 {
