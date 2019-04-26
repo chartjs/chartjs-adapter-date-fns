@@ -18,12 +18,12 @@ module.exports = [
 			indent: false,
 			globals: {
 				'chart.js': 'Chart',
-				'date-fns/esm': 'dateFns'
+				'date-fns': 'dateFns'
 			}
 		},
 		external: [
 			'chart.js',
-			'date-fns/esm'
+			'date-fns'
 		]
 	},
 	{
@@ -34,7 +34,7 @@ module.exports = [
 			indent: false,
 			globals: {
 				'chart.js': 'Chart',
-				'date-fns/esm': 'dateFns'
+				'date-fns': 'dateFns'
 			}
 		},
 		plugins: [
@@ -46,7 +46,7 @@ module.exports = [
 		],
 		external: [
 			'chart.js',
-			'date-fns/esm'
+			'date-fns'
 		]
 	}
 ];

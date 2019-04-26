@@ -10,7 +10,7 @@ import {
 	differenceInMonths, differenceInQuarters, differenceInYears,
 	endOfSecond, endOfMinute, endOfHour, endOfDay,
 	endOfWeek, endOfMonth, endOfQuarter, endOfYear
-} from 'date-fns/esm';
+} from 'date-fns';
 
 var FORMATS = {
 	datetime: 'MMM d, yyyy, h:mm:ss aaaa',
