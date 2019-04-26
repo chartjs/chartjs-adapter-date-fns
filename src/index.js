@@ -36,7 +36,7 @@ _adapters._date.override({
 		if (helpers.isNullOrUndef(value)) {
 			return null;
 		}
-		value = parse(value);
+		value = parse(value, this.options);
 		return isValid(value) ? value.valueOf() : null;
 	},
 
