@@ -37,13 +37,23 @@ Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/
 
 ## Configuration
 
-### Locale support
+### Locale support via scale options
 
-date-fns, contrary to moment.js which uses a global locale configuration, requires the date-fns locale object to be tagged on to each `format()` call, which requires the locale to be explicitly set via the `adapters.date` option: [Chart.js documentation on adapters.date](https://www.chartjs.org/docs/latest/axes/cartesian/time.html?h=adapter)
+date-fns requires a date-fns locale object to be tagged on to each `format()` call, which requires the locale to be explicitly set via the `adapters.date` option: [Chart.js documentation on adapters.date](https://www.chartjs.org/docs/latest/axes/cartesian/time.html?h=adapter)
 
 For example:
 ```javascript
-{ locale: de }
+// import date-fns locale:
+import {de} from 'date-fns/locale';
+
+// scale options:
+{
+    adapters: {
+        date: {
+            locale: de
+        }
+    }
+}
 ```
 
 Further, read the [Chart.js documention](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/v2.0.0-alpha.27/docs/format).
