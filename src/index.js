@@ -46,7 +46,7 @@ _adapters._date.override({
 				value = parseISO(value, this.options);
 			}
 		}
-		return isValid(value) ? value.valueOf() : null;
+		return isValid(value) ? value.getTime() : null;
 	},
 
 	format: function(time, fmt) {
