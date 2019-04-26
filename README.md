@@ -37,9 +37,11 @@ Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/
 
 ## Configuration
 
-Locale support:
+### Locale support
+
 date-fns, contrary to moment.js which uses a global locale configuration, requires the date-fns locale object to be tagged on to each `format()` call, which requires the locale to be explicitly set via the `adapters.date` option: [Chart.js documentation on adapters.date](https://www.chartjs.org/docs/latest/axes/cartesian/time.html?h=adapter)
-eg.
+
+For example:
 ```javascript
 { locale: de }
 ```

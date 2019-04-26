@@ -36,22 +36,21 @@ _adapters._date.override({
 		if (helpers.isNullOrUndef(value)) {
 			return null;
 		}
-		var options = this.options ? this.options : {};
 		var type = typeof value;
 		if (type === 'number' || value instanceof Date) {
 			value = toDate(value);
 		} else if (type === 'string') {
 			if (typeof fmt === 'string') {
-				value = parse(value, fmt, new Date(), options);
+				value = parse(value, fmt, new Date(), this.options);
 			} else {
-				value = parseISO(value, options);
+				value = parseISO(value, this.options);
 			}
 		}
 		return isValid(value) ? value.valueOf() : null;
 	},
 
 	format: function(time, fmt) {
-		return format(time, fmt, this.options || {});
+		return format(time, fmt, this.options);
 	},
 
 	add: function(time, amount, unit) {
