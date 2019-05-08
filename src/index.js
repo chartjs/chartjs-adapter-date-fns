@@ -18,7 +18,7 @@ var FORMATS = {
 	second: 'h:mm:ss a',
 	minute: 'h:mm a',
 	hour: 'ha',
-	day: 'MMM d',
+	day: 'MMM D',
 	week: 'DD',
 	month: 'MMM YYYY',
 	quarter: '[Q]Q - YYYY',
