@@ -29,8 +29,8 @@ By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns` returns the 
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/date-fns@1.30.1/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@0.1.0"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@0.1.2"></script>
 ```
 
 Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
@@ -42,6 +42,7 @@ Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/
 date-fns requires a date-fns locale object to be tagged on to each `format()` call, which requires the locale to be explicitly set via the `adapters.date` option: [Chart.js documentation on adapters.date](https://www.chartjs.org/docs/latest/axes/cartesian/time.html?h=adapter)
 
 For example:
+
 ```javascript
 // import date-fns locale:
 import de from 'date-fns/locale/de';
