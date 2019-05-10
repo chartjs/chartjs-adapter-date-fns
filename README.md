@@ -29,7 +29,7 @@ By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next` returns
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/date-fns@next/index.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.0.0-alpha0/date_fns.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next"></script>
 ```
 
@@ -45,6 +45,7 @@ For example:
 ```javascript
 // import date-fns locale:
 import {de} from 'date-fns/locale';
+
 
 // scale options:
 {
