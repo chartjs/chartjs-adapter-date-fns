@@ -6,16 +6,18 @@
 
 This adapter allows the use of date-fns with Chart.js.
 
-Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [date-fns](https://date-fns.org/) **2.0.0-alpha.27** or later.
+Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [date-fns](https://date-fns.org/) **2.0.0** or later.
 
 **Note:** once loaded, this adapter overrides the default date-adapter provided in Chart.js (as a side-effect).
+
+**Note:** For date-fns version 1.30.1 support, use [version 0.1.2](https://github.com/chartjs/chartjs-adapter-date-fns/releases/tag/v0.1.2) of this adapter.
 
 ## Installation
 
 ### npm
 
 ```bash
-npm install date-fns@next chartjs-adapter-date-fns@next --save
+npm install date-fns chartjs-adapter-date-fns --save
 ```
 
 ```javascript
@@ -25,12 +27,12 @@ import 'chartjs-adapter-date-fns';
 
 ### CDN
 
-By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
+By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.0.0-alpha0/date_fns.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.0.0"></script>
 ```
 
 Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
@@ -57,7 +59,7 @@ import {de} from 'date-fns/locale';
 }
 ```
 
-Further, read the [Chart.js documentation](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/v2.0.0-alpha.27/docs/format).
+Further, read the [Chart.js documentation](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/docs/format).
 
 ## Development
 
