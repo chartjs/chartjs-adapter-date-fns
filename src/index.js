@@ -19,7 +19,7 @@ var FORMATS = {
 	minute: 'h:mm aaaa',
 	hour: 'ha',
 	day: 'MMM d',
-	week: 'w',
+	week: 'PP',
 	month: 'MMM yyyy',
 	quarter: 'qqq - yyyy',
 	year: 'yyyy'
