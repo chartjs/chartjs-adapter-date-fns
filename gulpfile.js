@@ -21,7 +21,7 @@ function run(bin, args, done) {
 }
 
 gulp.task('build', function(done) {
-	run('rollup/bin/rollup', ['-c', argv.watch ? '--watch' : ''], done);
+	run('rollup/dist/bin/rollup', ['-c', argv.watch ? '--watch' : ''], done);
 });
 
 gulp.task('lint', function() {
