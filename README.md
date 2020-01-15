@@ -15,7 +15,7 @@ Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or l
 ### npm
 
 ```bash
-npm install date-fns@next chartjs-adapter-date-fns@next --save
+npm install date-fns chartjs-adapter-date-fns --save
 ```
 
 ```javascript
@@ -25,13 +25,14 @@ import 'chartjs-adapter-date-fns';
 
 ### CDN
 
-By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
+By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/2.0.0-alpha0/date_fns.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@1.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 ```
+
+**Note:** `date-fns` is not generally available through CDN, so a bundled build is offered for convinience.
 
 Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
 
@@ -42,6 +43,7 @@ Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/
 date-fns requires a date-fns locale object to be tagged on to each `format()` call, which requires the locale to be explicitly set via the `adapters.date` option: [Chart.js documentation on adapters.date](https://www.chartjs.org/docs/latest/axes/cartesian/time.html?h=adapter)
 
 For example:
+
 ```javascript
 // import date-fns locale:
 import {de} from 'date-fns/locale';
@@ -57,7 +59,7 @@ import {de} from 'date-fns/locale';
 }
 ```
 
-Further, read the [Chart.js documentation](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/v2.0.0-alpha.27/docs/format).
+Further, read the [Chart.js documentation](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/docs/format).
 
 ## Development
 
