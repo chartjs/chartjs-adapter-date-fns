@@ -1,18 +1,19 @@
-const terser = require('rollup-plugin-terser').terser;
-const pkg = require('./package.json');
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
+import { name, version, homepage, license } from './package.json';
 
 const banner = `/*!
- * ${pkg.name} v${pkg.version}
- * ${pkg.homepage}
+ * ${name} v${version}
+ * ${homepage}
  * (c) ${new Date().getFullYear()} Chart.js Contributors
- * Released under the ${pkg.license} license
+ * Released under the ${license} license
  */`;
 
-module.exports = [
+export default [
 	{
 		input: 'src/index.js',
 		output: {
-			file: `dist/${pkg.name}.js`,
+			file: `dist/${name}.js`,
 			banner: banner,
 			format: 'umd',
 			indent: false,
@@ -29,7 +30,7 @@ module.exports = [
 	{
 		input: 'src/index.js',
 		output: {
-			file: `dist/${pkg.name}.min.js`,
+			file: `dist/${name}.min.js`,
 			format: 'umd',
 			indent: false,
 			globals: {
@@ -47,6 +48,45 @@ module.exports = [
 		external: [
 			'chart.js',
 			'date-fns'
+		]
+	},
+	{
+		input: 'src/index.js',
+		output: {
+			file: `dist/${name}.bundle.js`,
+			format: 'umd',
+			indent: false,
+			globals: {
+				'chart.js': 'Chart'
+			}
+		},
+		plugins: [
+			resolve(),
+		],
+		external: [
+			'chart.js'
+		]
+	},
+	{
+		input: 'src/index.js',
+		output: {
+			file: `dist/${name}.bundle.min.js`,
+			format: 'umd',
+			indent: false,
+			globals: {
+				'chart.js': 'Chart'
+			}
+		},
+		plugins: [
+			resolve(),
+			terser({
+				output: {
+					preamble: banner
+				}
+			})
+		],
+		external: [
+			'chart.js'
 		]
 	}
 ];
