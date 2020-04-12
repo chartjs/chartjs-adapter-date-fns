@@ -1,4 +1,4 @@
-import { _adapters, helpers } from 'chart.js';
+import Chart from 'chart.js';
 import {
 	parse, parseISO, toDate, isValid, format,
 	startOfSecond, startOfMinute, startOfHour, startOfDay,
@@ -12,7 +12,7 @@ import {
 	endOfWeek, endOfMonth, endOfQuarter, endOfYear
 } from 'date-fns';
 
-var FORMATS = {
+const FORMATS = {
 	datetime: 'MMM d, yyyy, h:mm:ss aaaa',
 	millisecond: 'h:mm:ss.SSS aaaa',
 	second: 'h:mm:ss aaaa',
@@ -25,7 +25,7 @@ var FORMATS = {
 	year: 'yyyy'
 };
 
-_adapters._date.override({
+Chart._adapters._date.override({
 	_id: 'date-fns', // DEBUG
 
 	formats: function() {
@@ -33,10 +33,10 @@ _adapters._date.override({
 	},
 
 	parse: function(value, fmt) {
-		if (helpers.isNullOrUndef(value)) {
+		if (Chart.helpers.isNullOrUndef(value)) {
 			return null;
 		}
-		var type = typeof value;
+		const type = typeof value;
 		if (type === 'number' || value instanceof Date) {
 			value = toDate(value);
 		} else if (type === 'string') {

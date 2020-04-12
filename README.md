@@ -42,6 +42,7 @@ Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/
 date-fns requires a date-fns locale object to be tagged on to each `format()` call, which requires the locale to be explicitly set via the `adapters.date` option: [Chart.js documentation on adapters.date](https://www.chartjs.org/docs/latest/axes/cartesian/time.html?h=adapter)
 
 For example:
+
 ```javascript
 // import date-fns locale:
 import {de} from 'date-fns/locale';
