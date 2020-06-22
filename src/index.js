@@ -1,16 +1,43 @@
 import Chart from 'chart.js';
-import {
-	parse, parseISO, toDate, isValid, format,
-	startOfSecond, startOfMinute, startOfHour, startOfDay,
-	startOfWeek, startOfMonth, startOfQuarter, startOfYear,
-	addMilliseconds, addSeconds, addMinutes, addHours,
-	addDays, addWeeks, addMonths, addQuarters, addYears,
-	differenceInMilliseconds, differenceInSeconds, differenceInMinutes,
-	differenceInHours, differenceInDays, differenceInWeeks,
-	differenceInMonths, differenceInQuarters, differenceInYears,
-	endOfSecond, endOfMinute, endOfHour, endOfDay,
-	endOfWeek, endOfMonth, endOfQuarter, endOfYear
-} from 'date-fns';
+import addDays from 'date-fns/addDays';
+import addHours from 'date-fns/addHours';
+import addMilliseconds from 'date-fns/addMilliseconds';
+import addMinutes from 'date-fns/addMinutes';
+import addMonths from 'date-fns/addMonths';
+import addQuarters from 'date-fns/addQuarters';
+import addSeconds from 'date-fns/addSeconds';
+import addWeeks from 'date-fns/addWeeks';
+import addYears from 'date-fns/addYears';
+import differenceInDays from 'date-fns/differenceInDays';
+import differenceInHours from 'date-fns/differenceInHours';
+import differenceInMilliseconds from 'date-fns/differenceInMilliseconds';
+import differenceInMinutes from 'date-fns/differenceInMinutes';
+import differenceInMonths from 'date-fns/differenceInMonths';
+import differenceInQuarters from 'date-fns/differenceInQuarters';
+import differenceInSeconds from 'date-fns/differenceInSeconds';
+import differenceInWeeks from 'date-fns/differenceInWeeks';
+import differenceInYears from 'date-fns/differenceInYears';
+import endOfDay from 'date-fns/endOfDay';
+import endOfHour from 'date-fns/endOfHour';
+import endOfMinute from 'date-fns/endOfMinute';
+import endOfMonth from 'date-fns/endOfMonth';
+import endOfQuarter from 'date-fns/endOfQuarter';
+import endOfSecond from 'date-fns/endOfSecond';
+import endOfWeek from 'date-fns/endOfWeek';
+import endOfYear from 'date-fns/endOfYear';
+import format from 'date-fns/format';
+import isValid from 'date-fns/isValid';
+import parse from 'date-fns/parse';
+import parseISO from 'date-fns/parseISO';
+import startOfDay from 'date-fns/startOfDay';
+import startOfHour from 'date-fns/startOfHour';
+import startOfMinute from 'date-fns/startOfMinute';
+import startOfMonth from 'date-fns/startOfMonth';
+import startOfQuarter from 'date-fns/startOfQuarter';
+import startOfSecond from 'date-fns/startOfSecond';
+import startOfWeek from 'date-fns/startOfWeek';
+import startOfYear from 'date-fns/startOfYear';
+import toDate from 'date-fns/toDate';
 
 const FORMATS = {
 	datetime: 'MMM d, yyyy, h:mm:ss aaaa',
