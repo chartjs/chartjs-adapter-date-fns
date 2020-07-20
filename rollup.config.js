@@ -53,6 +53,23 @@ export default [
 	{
 		input: 'src/index.js',
 		output: {
+			file: `dist/${name}.esm.js`,
+			banner: banner,
+			format: 'esm',
+			indent: false,
+			globals: {
+				'chart.js': 'Chart',
+				'date-fns': 'dateFns'
+			}
+		},
+		external: [
+			'chart.js',
+			'date-fns'
+		]
+	},
+	{
+		input: 'src/index.js',
+		output: {
 			file: `dist/${name}.bundle.js`,
 			format: 'umd',
 			indent: false,
