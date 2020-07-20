@@ -33,7 +33,7 @@ Chart._adapters._date.override({
 	},
 
 	parse: function(value, fmt) {
-		if (Chart.helpers.isNullOrUndef(value)) {
+		if (value === null || typeof value === 'undefined') {
 			return null;
 		}
 		const type = typeof value;
