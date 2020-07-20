@@ -1,4 +1,4 @@
-import Chart from 'chart.js';
+import { Chart } from 'chart.js';
 import {
 	parse, parseISO, toDate, isValid, format,
 	startOfSecond, startOfMinute, startOfHour, startOfDay,
