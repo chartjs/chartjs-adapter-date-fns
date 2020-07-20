@@ -5,6 +5,7 @@
   "version": "1.1.0-alpha",
   "license": "MIT",
   "main": "dist/chartjs-adapter-date-fns.js",
+  "module": "dist/chartjs-adapter-date-fns.esm.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/chartjs/chartjs-adapter-date-fns.git"
