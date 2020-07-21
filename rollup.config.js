@@ -14,7 +14,7 @@ export default [
 		input: 'src/index.js',
 		output: {
 			file: `dist/${name}.js`,
-			banner: banner,
+			banner,
 			format: 'umd',
 			indent: false,
 			globals: {
@@ -54,7 +54,7 @@ export default [
 		input: 'src/index.js',
 		output: {
 			file: `dist/${name}.esm.js`,
-			banner: banner,
+			banner,
 			format: 'esm',
 			indent: false,
 			globals: {
