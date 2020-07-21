@@ -1,4 +1,4 @@
-import { Chart } from 'chart.js';
+import { _adapters } from 'chart.js';
 import {
 	parse, parseISO, toDate, isValid, format,
 	startOfSecond, startOfMinute, startOfHour, startOfDay,
@@ -25,7 +25,7 @@ const FORMATS = {
 	year: 'yyyy'
 };
 
-Chart._adapters._date.override({
+_adapters._date.override({
 	_id: 'date-fns', // DEBUG
 
 	formats: function() {
