@@ -1,4 +1,4 @@
-import Chart from 'chart.js';
+import { Chart } from 'chart.js';
 import {
 	parse, parseISO, toDate, isValid, format,
 	startOfSecond, startOfMinute, startOfHour, startOfDay,
@@ -33,7 +33,7 @@ Chart._adapters._date.override({
 	},
 
 	parse: function(value, fmt) {
-		if (Chart.helpers.isNullOrUndef(value)) {
+		if (value === null || typeof value === 'undefined') {
 			return null;
 		}
 		const type = typeof value;
