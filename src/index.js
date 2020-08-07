@@ -90,7 +90,7 @@ Chart._adapters._date.override({
 		case 'hour': return startOfHour(time);
 		case 'day': return startOfDay(time);
 		case 'week': return startOfWeek(time);
-		case 'isoWeek': return startOfWeek(time, { weekStartsOn: +weekday });
+		case 'isoWeek': return startOfWeek(time, { weekStartsOn: Math.trunc(Math.min(Math.max(0, weekday), 6)) });
 		case 'month': return startOfMonth(time);
 		case 'quarter': return startOfQuarter(time);
 		case 'year': return startOfYear(time);
