@@ -6,7 +6,7 @@
 
 This adapter allows the use of date-fns with Chart.js.
 
-Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [date-fns](https://date-fns.org/) **2.0.0-alpha.27** or later.
+Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or later and [date-fns](https://date-fns.org/) **2.0.0** or later.
 
 **Note:** once loaded, this adapter overrides the default date-adapter provided in Chart.js (as a side-effect).
 
