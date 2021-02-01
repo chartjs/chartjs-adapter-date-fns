@@ -61,6 +61,29 @@ import {de} from 'date-fns/locale';
 
 Further, read the [Chart.js documentation](https://www.chartjs.org/docs/latest) for other possible date/time related options. For example, the time scale [`time.*` options](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options) can be overridden using the [date-fns tokens](https://date-fns.org/docs/format).
 
+### Display formats options
+
+Chart.js allows you to configure the global display formats via [`time.displayFormats`](https://www.chartjs.org/docs/latest/axes/cartesian/time.html#configuration-options), but these aren’t passed to date-fns.
+
+For example, you can change `time.unit` to `'month'` to use date-fns to display the month, but you cannot use `time.displayFormats` to change the display of `month` from the default of `MMM yyyy` to your custom string `MMMM`.
+
+Instead, you can change these values using `adapters.date.formats`:
+
+```js
+// scale options:
+{
+  adapters: {
+    date: {
+      formats: {
+        month: 'MMMM'
+      }
+    }
+  }
+}
+```
+
+Your modifications will be merged into [the defaults](https://github.com/chartjs/chartjs-adapter-date-fns/blob/a26933d3a14d827f3faa865aa2f01546b7359d60/src/index.js#L15-L26) for this adapter.
+
 ## Development
 
 You first need to install node dependencies (requires [Node.js](https://nodejs.org/)):
