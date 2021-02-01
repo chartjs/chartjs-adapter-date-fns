@@ -29,6 +29,10 @@ Chart._adapters._date.override({
 	_id: 'date-fns', // DEBUG
 
 	formats: function() {
+		if (this.options && this.options.formats && typeof Object.assign === 'function') {
+			return Object.assign({}, FORMATS, this.options.formats)
+		}
+
 		return FORMATS;
 	},
 
