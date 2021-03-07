@@ -38,6 +38,9 @@ version-resolver:
   default: patch
 template: |
   # Essential Links
+
   * [npm](https://www.npmjs.com/package/chartjs-adapter-date-fns)
+
   $CHANGES
+
   Thanks to $CONTRIBUTORS
