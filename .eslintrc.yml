@@ -1,13 +1,17 @@
-extends: chartjs
-
-parserOptions:
-  ecmaVersion: 6
-  sourceType: module
+extends:
+  - chartjs
+  - plugin:es/no-new-in-es2019
 
 env:
   es6: true
   browser: true
   node: true
 
-rules:
-  object-curly-spacing: [2, "always"]
+parserOptions:
+  ecmaVersion: 2018
+  sourceType: module
+  ecmaFeatures:
+    impliedStrict: true
+    modules: true
+
+plugins: ['es']

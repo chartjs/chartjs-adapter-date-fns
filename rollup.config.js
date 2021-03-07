@@ -1,42 +1,43 @@
-import resolve from '@rollup/plugin-node-resolve';
-import { terser } from 'rollup-plugin-terser';
-import { name, version, homepage, license } from './package.json';
+const resolve = require('@rollup/plugin-node-resolve').default;
+const terser = require('rollup-plugin-terser').terser;
+const pkg = require('./package.json');
 
 const banner = `/*!
- * ${name} v${version}
- * ${homepage}
- * (c) ${new Date().getFullYear()} Chart.js Contributors
- * Released under the ${license} license
+ * ${pkg.name} v${pkg.version}
+ * ${pkg.homepage}
+ * (c) ${new Date().getFullYear()} chartjs-adapter-date-fns Contributors
+ * Released under the ${pkg.license} license
  */`;
 
-export default [
+const input = 'src/index.js';
+const external = [
+  'chart.js',
+  'date-fns'
+];
+const globals = {
+  'chart.js': 'Chart',
+  'date-fns': 'dateFns'
+};
+
+module.exports = [
 	{
-		input: 'src/index.js',
-		output: {
-			file: `dist/${name}.js`,
+		input,
+    output: {
+			file: pkg.main,
 			banner: banner,
 			format: 'umd',
 			indent: false,
-			globals: {
-				'chart.js': 'Chart',
-				'date-fns': 'dateFns'
-			}
+			globals
 		},
-		external: [
-			'chart.js',
-			'date-fns'
-		]
+		external
 	},
 	{
-		input: 'src/index.js',
+		input,
 		output: {
-			file: `dist/${name}.min.js`,
+      file: pkg.main.replace('.js', '.min.js'),
 			format: 'umd',
 			indent: false,
-			globals: {
-				'chart.js': 'Chart',
-				'date-fns': 'dateFns'
-			}
+			globals
 		},
 		plugins: [
 			terser({
@@ -45,32 +46,23 @@ export default [
 				}
 			})
 		],
-		external: [
-			'chart.js',
-			'date-fns'
-		]
+		external
 	},
 	{
-		input: 'src/index.js',
+		input,
 		output: {
-			file: `dist/${name}.esm.js`,
+			file: pkg.module,
 			banner: banner,
 			format: 'esm',
 			indent: false,
-			globals: {
-				'chart.js': 'Chart',
-				'date-fns': 'dateFns'
-			}
+			globals
 		},
-		external: [
-			'chart.js',
-			'date-fns'
-		]
+		external
 	},
 	{
-		input: 'src/index.js',
+		input,
 		output: {
-			file: `dist/${name}.bundle.js`,
+			file: pkg.main.replace('.js', '.bundle.js'),
 			format: 'umd',
 			indent: false,
 			globals: {
@@ -85,9 +77,9 @@ export default [
 		]
 	},
 	{
-		input: 'src/index.js',
+		input,
 		output: {
-			file: `dist/${name}.bundle.min.js`,
+			file: pkg.main.replace('.js', '.bundle.min.js'),
 			format: 'umd',
 			indent: false,
 			globals: {
