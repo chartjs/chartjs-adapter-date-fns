@@ -20,82 +20,82 @@ const globals = {
 };
 
 module.exports = [
-	{
-		input,
+  {
+    input,
     output: {
-			file: pkg.main,
-			banner: banner,
-			format: 'umd',
-			indent: false,
-			globals
-		},
-		external
-	},
-	{
-		input,
-		output: {
+      file: pkg.main,
+      banner: banner,
+      format: 'umd',
+      indent: false,
+      globals
+    },
+    external
+  },
+  {
+    input,
+    output: {
       file: pkg.main.replace('.js', '.min.js'),
-			format: 'umd',
-			indent: false,
-			globals
-		},
-		plugins: [
-			terser({
-				output: {
-					preamble: banner
-				}
-			})
-		],
-		external
-	},
-	{
-		input,
-		output: {
-			file: pkg.module,
-			banner: banner,
-			format: 'esm',
-			indent: false,
-			globals
-		},
-		external
-	},
-	{
-		input,
-		output: {
-			file: pkg.main.replace('.js', '.bundle.js'),
-			format: 'umd',
-			indent: false,
-			globals: {
-				'chart.js': 'Chart'
-			}
-		},
-		plugins: [
-			resolve(),
-		],
-		external: [
-			'chart.js'
-		]
-	},
-	{
-		input,
-		output: {
-			file: pkg.main.replace('.js', '.bundle.min.js'),
-			format: 'umd',
-			indent: false,
-			globals: {
-				'chart.js': 'Chart'
-			}
-		},
-		plugins: [
-			resolve(),
-			terser({
-				output: {
-					preamble: banner
-				}
-			})
-		],
-		external: [
-			'chart.js'
-		]
-	}
+      format: 'umd',
+      indent: false,
+      globals
+    },
+    plugins: [
+      terser({
+        output: {
+          preamble: banner
+        }
+      })
+    ],
+    external
+  },
+  {
+    input,
+    output: {
+      file: pkg.module,
+      banner: banner,
+      format: 'esm',
+      indent: false,
+      globals
+    },
+    external
+  },
+  {
+    input,
+    output: {
+      file: pkg.main.replace('.js', '.bundle.js'),
+      format: 'umd',
+      indent: false,
+      globals: {
+        'chart.js': 'Chart'
+      }
+    },
+    plugins: [
+      resolve(),
+    ],
+    external: [
+      'chart.js'
+    ]
+  },
+  {
+    input,
+    output: {
+      file: pkg.main.replace('.js', '.bundle.min.js'),
+      format: 'umd',
+      indent: false,
+      globals: {
+        'chart.js': 'Chart'
+      }
+    },
+    plugins: [
+      resolve(),
+      terser({
+        output: {
+          preamble: banner
+        }
+      })
+    ],
+    external: [
+      'chart.js'
+    ]
+  }
 ];
