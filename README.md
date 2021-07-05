@@ -25,11 +25,11 @@ import 'chartjs-adapter-date-fns';
 
 ### CDN
 
-By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
+By default, `https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns` returns the latest (minified) version, however it's [highly recommended](https://www.jsdelivr.com/features) to always specify a version in order to avoid breaking changes. This can be achieved by appending `@{version}` to the url:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/chart.js@next/dist/chart.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@next/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 ```
 
 Read more about jsDeliver versioning on their [website](http://www.jsdelivr.com/).
