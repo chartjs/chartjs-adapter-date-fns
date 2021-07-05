@@ -15,7 +15,7 @@ Requires [Chart.js](https://github.com/chartjs/Chart.js/releases) **2.8.0** or l
 ### npm
 
 ```bash
-npm install date-fns chartjs-adapter-date-fns@next --save
+npm install date-fns chartjs-adapter-date-fns --save
 ```
 
 ```javascript
