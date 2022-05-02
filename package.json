@@ -49,6 +49,6 @@
     "rollup-plugin-terser": "^7.0.2"
   },
   "peerDependencies": {
-    "chart.js": "^3.0.0"
+    "chart.js": ">=2.8.0"
   }
 }
