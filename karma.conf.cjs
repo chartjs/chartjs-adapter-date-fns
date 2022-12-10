@@ -1,10 +1,10 @@
 const istanbul = require('rollup-plugin-istanbul');
 const resolve = require('@rollup/plugin-node-resolve').default;
-const builds = require('./rollup.config');
 const yargs = require('yargs');
 const env = process.env.NODE_ENV;
 
-module.exports = function(karma) {
+module.exports = async function(karma) {
+  const builds = (await import('./rollup.config.js')).default;
   const args = yargs
     .option('verbose', {default: false})
     .argv;
@@ -54,7 +54,7 @@ module.exports = function(karma) {
     },
 
     files: [
-      {pattern: 'node_modules/chart.js/dist/chart.js'},
+      {pattern: 'node_modules/chart.js/dist/chart.umd.js'},
       {pattern: 'src/index.js', watched: false},
       {pattern: 'test/index.js'},
       {pattern: 'test/specs/**/**.js'}

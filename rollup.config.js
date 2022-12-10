@@ -1,12 +1,14 @@
-const resolve = require('@rollup/plugin-node-resolve').default;
-const terser = require('rollup-plugin-terser').terser;
-const pkg = require('./package.json');
+import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
+import {readFileSync} from 'fs';
+
+const {name, version, homepage, main, license} = JSON.parse(readFileSync('./package.json'));
 
 const banner = `/*!
- * ${pkg.name} v${pkg.version}
- * ${pkg.homepage}
+ * ${name} v${version}
+ * ${homepage}
  * (c) ${new Date().getFullYear()} chartjs-adapter-date-fns Contributors
- * Released under the ${pkg.license} license
+ * Released under the ${license} license
  */`;
 
 const input = 'src/index.js';
@@ -19,11 +21,22 @@ const globals = {
   'date-fns': 'dateFns'
 };
 
-module.exports = [
+export default [
   {
     input,
     output: {
-      file: pkg.main,
+      file: main,
+      banner: banner,
+      format: 'esm',
+      indent: false,
+      globals
+    },
+    external
+  },
+  {
+    input,
+    output: {
+      file: main.replace('.esm.js', '.js'),
       banner: banner,
       format: 'umd',
       indent: false,
@@ -34,7 +47,7 @@ module.exports = [
   {
     input,
     output: {
-      file: pkg.main.replace('.js', '.min.js'),
+      file: main.replace('.esm.js', '.min.js'),
       format: 'umd',
       indent: false,
       globals
@@ -51,18 +64,7 @@ module.exports = [
   {
     input,
     output: {
-      file: pkg.module,
-      banner: banner,
-      format: 'esm',
-      indent: false,
-      globals
-    },
-    external
-  },
-  {
-    input,
-    output: {
-      file: pkg.main.replace('.js', '.bundle.js'),
+      file: main.replace('.esm.js', '.bundle.js'),
       format: 'umd',
       indent: false,
       globals: {
@@ -79,7 +81,7 @@ module.exports = [
   {
     input,
     output: {
-      file: pkg.main.replace('.js', '.bundle.min.js'),
+      file: main.replace('.esm.js', '.bundle.min.js'),
       format: 'umd',
       indent: false,
       globals: {
