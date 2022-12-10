@@ -4,8 +4,10 @@
   "description": "Chart.js adapter to use date-fns for time functionalities",
   "version": "2.0.1",
   "license": "MIT",
-  "main": "dist/chartjs-adapter-date-fns.js",
-  "module": "dist/chartjs-adapter-date-fns.esm.js",
+  "type": "module",
+  "exports": {
+    ".": "./dist/chartjs-adapter-date-fns.esm.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/chartjs/chartjs-adapter-date-fns.git"
