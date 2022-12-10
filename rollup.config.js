@@ -25,6 +25,17 @@ export default [
   {
     input,
     output: {
+      file: main,
+      banner: banner,
+      format: 'esm',
+      indent: false,
+      globals
+    },
+    external
+  },
+  {
+    input,
+    output: {
       file: main.replace('.esm.js', '.js'),
       banner: banner,
       format: 'umd',
@@ -48,17 +59,6 @@ export default [
         }
       })
     ],
-    external
-  },
-  {
-    input,
-    output: {
-      file: main,
-      banner: banner,
-      format: 'esm',
-      indent: false,
-      globals
-    },
     external
   },
   {
